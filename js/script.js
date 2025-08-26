@@ -104,9 +104,22 @@ function initPopupButtons() {
         return;
       }
 
+      const formatAge = (ageString) => {
+        const age = +ageString.split(' ')[0];
+        
+        console.log(age);
+
+        if (age > 12) {
+          return ((age / 12) | 0) + " р.";
+        }
+
+        return ageString;
+      };
+
+
       // Вставлення текстових даних
       document.getElementById("popupName").textContent = button.dataset.імя;
-      document.getElementById("popupAge").textContent = button.dataset.вік;
+      document.getElementById("popupAge").textContent = formatAge(button.dataset.вік);
       document.getElementById("popupSize").textContent = button.dataset.розмір;
       document.getElementById("popupCity").textContent = button.dataset.місто;
       document.getElementById("popupPhone").textContent = button.dataset.телефон;
